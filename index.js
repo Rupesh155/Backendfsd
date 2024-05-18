@@ -295,21 +295,27 @@
 //   console.log('server running on 5000');
 // })
 
-
-
  let express=   require('express')
  let app=   express()
 
+let arr=['hello ','hiii','byee!!']
  app.set('view engine', 'ejs')
-
+app.use(express.static('public'))
  app.get('/',(req,res)=>{
   res.render('index')
 
  })
  app.get('/random',(req,res)=>{
-  res.render('random')
+  let a=   Math.floor( Math.random()*100)
+  res.render('random', {arr})
 
  })
+
+  app.get('/user',(req,res)=>{
+    console.log(req.query,"heheh");
+    res.send('done')
+
+  })
 
  app.listen(8000,()=>{
   console.log('server runnning....');
