@@ -297,6 +297,7 @@
 
  let express=   require('express')
  let app=   express()
+ app.use(express.urlencoded({extended:true}))
 
 let arr=['hello ','hiii','byee!!']
  app.set('view engine', 'ejs')
@@ -313,7 +314,14 @@ app.use(express.static('public'))
 
   app.get('/user',(req,res)=>{
     console.log(req.query,"heheh");
-    res.send('done')
+    let {name,email,password}=req.query
+    res.send(`${name}  ${email},  ${password}`)
+
+  })
+
+  app.post('/user',(req,res)=>{
+    console.log(req.body,"rrrr");
+    res.send('formmmm!!!!')
 
   })
 

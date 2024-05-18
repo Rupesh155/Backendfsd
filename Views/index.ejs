@@ -8,7 +8,7 @@
 </head>
 <body>
     <fieldset>  
-        <legend> Get vs post</legend>
+        <legend> Get</legend>
     <form action="/user" method="GET">
         <label  for="name">    name: </label>
         <input   name="name" type="text" placeholder=" name" id="name"/>
@@ -25,6 +25,27 @@
 <br>
      <button type="submit"> chale jao</button>
     </form>
+</fieldset>
+
+
+<fieldset>  
+    <legend> POST</legend>
+<form action="/user" method="POST">
+    <label  for="name">    name: </label>
+    <input   name="name" type="text" placeholder=" name" id="name"/>
+    <br>
+    <br>
+
+    <label  for="email">  email</label>
+    <input   name="email" type="email" placeholder="email" id="email"/>
+    <br>
+    <br>
+    <label for="pass">  password:   </label>
+    <input   name="password" id="pass" type="password" placeholder="password"/>
+<br>
+<br>
+ <button type="submit"> chale jao</button>
+</form>
 </fieldset>
 </body>
 </html>
