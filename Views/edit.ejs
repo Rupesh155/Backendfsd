@@ -9,7 +9,7 @@
  
     <fieldset>  
         <legend>  edit</legend>
-    <form>
+    <form action="/blog/<%=data.id%>?_method=PATCH"  method="POST"  >
         
         <input type="text" name="username"  value="<%=data.username  %>" />
         <br>

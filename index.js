@@ -337,8 +337,9 @@
 
 
 let express=  require('express')
-
+let methodOverride = require('method-override');
 let app=  express()
+app.use(methodOverride('_method'));
  app.use(express.urlencoded({ extended: true }));
 let comments = [
   {
@@ -388,6 +389,14 @@ console.log(id,"ididid");
    let data=  comments.find((data)=>{return data.id==id})
    console.log(data,"dagta");
    res.render('edit',{data})
+
+
+})
+
+
+app.patch('/blog/:id',(req,res)=>{
+  console.log(req.body);
+  res.send('ehehehe')
 
 
 })
