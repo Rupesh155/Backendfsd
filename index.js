@@ -395,8 +395,20 @@ console.log(id,"ididid");
 
 
 app.patch('/blog/:id',(req,res)=>{
-  console.log(req.body);
-  res.send('ehehehe')
+  let {id}=req.params
+  console.log(id,'eje');
+  let {username,comment}=req.body
+
+  let data=  comments.find((data)=>{return data.id==id})
+  console.log(data,"datata");
+
+  data.comment=comment
+  data.username=username
+  res.redirect('/blog')
+
+
+  
+
 
 
 })
