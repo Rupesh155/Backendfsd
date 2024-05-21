@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +48,25 @@
 </form>
 </fieldset>
 </body>
-</html>
+</html> -->
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> crud</h2>
+   <% for(let i of comments){ %>
+        <h2>id: <%=i.id %>  </h2>
+        <p>   name: <%=i.username %></p>
+        <p>    comment:   <%=i.comment %> </p>
+        <a href="/blog/<%=i.id %> "> edit </a>
+   <% }%>
+</body>
+</html>
 

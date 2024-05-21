@@ -159,180 +159,242 @@
 // // app.get('/cat',(req,res)=>{
 // //     res.send('Meow Meoww')
 
-// // })
-// // app.get('*',(req,res)=>{
-// //     res.send('pa found')
+// // // })
+// // // app.get('*',(req,res)=>{
+// // //     res.send('pa found')
+
+// // // })
+// // // npm i ejs
+
+// // app.set('view engine', 'ejs')
+
+// // app.get('/',(req,res)=>{
+// //   res.render('index')
 
 // // })
-// // npm i ejs
+// //   app.listen(4000,()=>{
+// //     console.log('server running on port no 4000');
 
-// app.set('view engine', 'ejs')
-
-// app.get('/',(req,res)=>{
-//   res.render('index')
-
-// })
-//   app.listen(4000,()=>{
-//     console.log('server running on port no 4000');
-
-//   })
+// //   })
 
 
-// //   let express=  require('express')
-// //  let app=    express()
+// // //   let express=  require('express')
+// // //  let app=    express()
 
-// //  app.get('/', (req,res)=>{
-// //   res.send('hello')
+// // //  app.get('/', (req,res)=>{
+// // //   res.send('hello')
 
-// //  })
-// //  app.get('/:r/:a', (req,res)=>{
-// // let {r,a}=req.params
-// //   res.send(`${r} and  ${a}`)
+// // //  })
+// // //  app.get('/:r/:a', (req,res)=>{
+// // // let {r,a}=req.params
+// // //   res.send(`${r} and  ${a}`)
 
-// //  })
+// // //  })
 
-// // app.get('/search',(req,res)=>{
-// //   console.log('hehe');
-// //   console.log(req.query);
-// //   let {firstName,lastName}=req.query
-// //   res.send(` ${firstName}   ${lastName}`)
+// // // app.get('/search',(req,res)=>{
+// // //   console.log('hehe');
+// // //   console.log(req.query);
+// // //   let {firstName,lastName}=req.query
+// // //   res.send(` ${firstName}   ${lastName}`)
+// // // })
+
+// // // http://localhost:5000/search?firstName=Rahul&lastName=Kumar
+
+// // //  app.listen(5000,()=>{
+// // //   console.log('server running ');
+// // //  })
+
+
+
+// // let express=  require('express')
+// // let mongoose=   require('mongoose')
+// // let app=  express()
+// // let User=   require('./models/model')
+// // app.use(express.json())
+// // let bcrypt=    require('bcrypt')
+// // app.use(express.urlencoded({ extended: true }));
+// // mongoose.connect('mongodb://127.0.0.1:27017/auth').then(()=>{
+// //   console.log('db conn...');
+// // }).catch(()=>{
+// //   console.log('err');
 // // })
 
-// // http://localhost:5000/search?firstName=Rahul&lastName=Kumar
+// // app.post('/signup', async(req,res)=>{
+// //   let user=req.body
+// //   console.log(user,"rr")
+// //   // res.send(user)
+// //   let Email=  await  User.findOne({email:user.email})
+// //   if(Email){
+// //       res.send('user jinda aiii ')
+// //   }
+// //   else{
+// //       // res.send('hehe')
+// //    user.passWord=  await bcrypt.hash(user.passWord, 10)
+// //   console.log(user,"rrrr")
+// //   let dbUser=  new User({
+// //       firstName:user.firstName,
+// //       lastName:user.lastName,
+// //       email:user.email,
+// //       passWord:user.passWord
 
-// //  app.listen(5000,()=>{
-// //   console.log('server running ');
-// //  })
+// //   })
+// //   // console.log(user,"rrrr");
+// // await  dbUser.save()
 
-
-
-// let express=  require('express')
-// let mongoose=   require('mongoose')
-// let app=  express()
-// let User=   require('./models/model')
-// app.use(express.json())
-// let bcrypt=    require('bcrypt')
-// app.use(express.urlencoded({ extended: true }));
-// mongoose.connect('mongodb://127.0.0.1:27017/auth').then(()=>{
-//   console.log('db conn...');
-// }).catch(()=>{
-//   console.log('err');
-// })
-
-// app.post('/signup', async(req,res)=>{
-//   let user=req.body
-//   console.log(user,"rr")
-//   // res.send(user)
-//   let Email=  await  User.findOne({email:user.email})
-//   if(Email){
-//       res.send('user jinda aiii ')
-//   }
-//   else{
-//       // res.send('hehe')
-//    user.passWord=  await bcrypt.hash(user.passWord, 10)
-//   console.log(user,"rrrr")
-//   let dbUser=  new User({
-//       firstName:user.firstName,
-//       lastName:user.lastName,
-//       email:user.email,
-//       passWord:user.passWord
-
-//   })
-//   // console.log(user,"rrrr");
-// await  dbUser.save()
-
-// res.send('user created  ')
+// // res.send('user created  ')
 
         
-//   }
+// //   }
 
-// })
-
-
+// // })
 
 
-// app.post('/login',async(req,res)=>{
-//   let userInfo=req.body
-//   console.log(userInfo.passWord,"login password");
-//   let user
-//   try{
 
-//        user=   await User.findOne({email:userInfo.email})
-//        console.log(user.passWord,"signup passs");
 
-//   }catch{
-//       console.log('errr');
+// // app.post('/login',async(req,res)=>{
+// //   let userInfo=req.body
+// //   console.log(userInfo.passWord,"login password");
+// //   let user
+// //   try{
 
-//   }
-//   if(!user){
-//       res.send('user not found')
-//   }
-//   else{                                                                          
-//      let validPassoword=   await bcrypt.compare(userInfo.passWord,user.passWord)
-//           .catch((err)=>{
-//               console.log(err,'while matching passWord');
-//           })
-//           console.log(validPassoword,"valid");
-//           if(!validPassoword){
-//               res.send('Invalid passWord')
-//           }
-//           else{
-//               res.send('login ho gyaa')
-//           }
+// //        user=   await User.findOne({email:userInfo.email})
+// //        console.log(user.passWord,"signup passs");
+
+// //   }catch{
+// //       console.log('errr');
+
+// //   }
+// //   if(!user){
+// //       res.send('user not found')
+// //   }
+// //   else{                                                                          
+// //      let validPassoword=   await bcrypt.compare(userInfo.passWord,user.passWord)
+// //           .catch((err)=>{
+// //               console.log(err,'while matching passWord');
+// //           })
+// //           console.log(validPassoword,"valid");
+// //           if(!validPassoword){
+// //               res.send('Invalid passWord')
+// //           }
+// //           else{
+// //               res.send('login ho gyaa')
+// //           }
          
-//   }
+// //   }
 
-//   // res.send(userInfo)
-//   // console.log(userInfo,"rrr");
+// //   // res.send(userInfo)
+// //   // console.log(userInfo,"rrr");
 
-// })
+// // })
 
-// app.get('/',(req,res)=>{
-//   res.send('helllo')
-// })
+// // app.get('/',(req,res)=>{
+// //   res.send('helllo')
+// // })
 
-// app.listen(5000,()=>{
-//   console.log('server running on 5000');
-// })
+// // app.listen(5000,()=>{
+// //   console.log('server running on 5000');
+// // })
 
- let express=   require('express')
- let app=   express()
- app.use(express.urlencoded({extended:true}))
+//  let express=   require('express')
+//  let app=   express()
+//  app.use(express.urlencoded({extended:true}))
+//  app.use(express.json())
 
-let arr=['hello ','hiii','byee!!']
- app.set('view engine', 'ejs')
-app.use(express.static('public'))
- app.get('/',(req,res)=>{
-  res.render('index')
+// let arr=['hello ','hiii','byee!!']
+//  app.set('view engine', 'ejs')
+// app.use(express.static('public'))
+//  app.get('/',(req,res)=>{
+//   res.render('index')
 
- })
- app.get('/random',(req,res)=>{
-  let a=   Math.floor( Math.random()*100)
-  res.render('random', {arr})
+//  })
+//  app.get('/random',(req,res)=>{
+//   let a=   Math.floor( Math.random()*100)
+//   res.render('random', {arr})
 
- })
+//  })
 
-  app.get('/user',(req,res)=>{
-    console.log(req.query,"heheh");
-    let {name,email,password}=req.query
-    res.send(`${name}  ${email},  ${password}`)
+//   app.get('/user',(req,res)=>{
 
-  })
+//     let {name,email,password}=req.query
+//     // res.send(`${name}  ${email},  ${password}`)
+//     res.send('hello')
 
-  app.post('/user',(req,res)=>{
-    console.log(req.body,"rrrr");
-    res.send('formmmm!!!!')
+//   })
 
-  })
+//   app.post('/user',(req,res)=>{
+//     console.log(req.body,"rrrr");
+//     res.send(req.body)
 
- app.listen(8000,()=>{
-  console.log('server runnning....');
+//   })
 
- })
+//  app.listen(8000,()=>{
+//   console.log('server runnning....');
+
+//  })
 
 
  
 
 
+let express=  require('express')
+
+let app=  express()
+ app.use(express.urlencoded({ extended: true }));
+let comments = [
+  {
+      id:0,
+      username:"Sam",
+      comment:"chitkara is a nice university 0"
+  },
+  {
+      id:1,
+      username:"g2",
+      comment:"chitkara is a nice university 1"
+  },
+  {
+      id:2,
+      username:"vohra",
+      comment:"chitkara is a nice university 2"
+  }
+]
+
+app.set('view engine','ejs')
+
+app.get('/blog',(req,res)=>{
+  res.render('index',{comments})
+
+})
+
+app.get('/blog/new',(req,res)=>{
+  res.render('new')
+
+})
+
+app.post('/blog',(req,res)=>{
+  console.log(req.body,"heheh");
+  let {username,comment}=req.body
+  comments.push({username,comment,id:comments.length})
+  res.redirect('/blog')
+
+  // res.send('sendddd')
+
+
+})
+
+app.get('/blog/:id',(req,res)=>{
+  let {id}=req.params
+console.log(id,"ididid");
+
+   let data=  comments.find((data)=>{return data.id==id})
+   console.log(data,"dagta");
+   res.render('edit',{data})
+
+
+})
+
+app.listen(5000,()=>{
+  console.log('server ....')
+
+})
 
        
